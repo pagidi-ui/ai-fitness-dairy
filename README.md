@@ -22,11 +22,9 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 
 ## 🚂 Deploy to Railway
 
-1. Connect this repository to Railway
+1. Connect your repository to Railway
 2. Set up environment variables (see `.env.example`)
-3. Deploy!
-
-Railway will automatically detect Next.js and use pnpm.
+3. Railway will automatically detect the configuration and deploy
 
 ## 📦 Built With
 
@@ -35,3 +33,7 @@ Railway will automatically detect Next.js and use pnpm.
 - TypeScript
 - Tailwind CSS
 - pnpm
+
+## 🔧 Environment Variables
+
+See `.env.example` for required environment variables.
