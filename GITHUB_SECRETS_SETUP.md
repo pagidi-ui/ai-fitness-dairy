@@ -4,22 +4,21 @@ This document explains how to configure GitHub Secrets for Azure deployment.
 
 ## Your Azure Credentials Format
 
-You should have received or generated Azure credentials in this JSON format:
+You should have received or generated Azure credentials. The Azure CLI may output many fields, but for GitHub Actions, **you only need these four fields**:
 
 ```json
 {
   "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "clientSecret": "xxxxxxxxxxxxxxxxxxxxxxxxxx",
   "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
+  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
+
+**⚠️ IMPORTANT:**
+- Only use these four fields in the `AZURE_CREDENTIALS` secret
+- If your Azure CLI output includes additional fields (like `activeDirectoryEndpointUrl`, `resourceManagerEndpointUrl`, `managementEndpointUrl`, etc.), **do not include them**
+- Ensure the JSON is properly formatted with matching braces and no trailing text
 
 ## How to Add These Credentials to GitHub
 
@@ -33,24 +32,23 @@ You should have received or generated Azure credentials in this JSON format:
 
 1. Click **New repository secret**
 2. Name: `AZURE_CREDENTIALS`
-3. Value: Paste the **ENTIRE JSON** credential object (all lines from `{` to `}`)
+3. Value: Paste the **four required fields only** in JSON format
 4. Click **Add secret**
 
-Example of what to paste (use your actual credentials from YOUR_CREDENTIALS.md):
+**Example of what to paste (use your actual credentials):**
 ```json
 {
-  "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "clientSecret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
+  "clientId": "c38a4263-19a8-4ee3-9a30-f1a8d9c6a70e",
+  "clientSecret": "kn38Q~Y_3nU8kgnwoq~AMqoYL6OmUCuhpUxBvcuG",
+  "subscriptionId": "8fa9e9a2-2b75-4de8-9984-949f8b34ab28",
+  "tenantId": "ba416056-8c0c-49fb-bdff-31782244be2e"
 }
 ```
+
+**⚠️ Critical**: 
+- Only include the four fields shown above
+- Do not include fields like `activeDirectoryEndpointUrl`, `managementEndpointUrl`, etc.
+- Ensure the JSON is valid (proper braces, no trailing text or comments)
 
 ### Step 3: Add AZURE_WEBAPP_PUBLISH_PROFILE Secret
 
@@ -106,7 +104,9 @@ After adding the secrets:
 
 ### "Invalid JSON" error
 - Ensure you copied the complete JSON structure including opening `{` and closing `}`
-- Verify there are no extra spaces or characters
+- **Only include the four required fields**: `clientId`, `clientSecret`, `subscriptionId`, `tenantId`
+- Remove any extra fields like `activeDirectoryEndpointUrl`, `resourceManagerEndpointUrl`, `managementEndpointUrl`, etc.
+- Verify there are no extra spaces, trailing text, or characters after the closing brace
 - Make sure all quotes are standard double quotes (not smart quotes)
 
 ### Authentication failed
