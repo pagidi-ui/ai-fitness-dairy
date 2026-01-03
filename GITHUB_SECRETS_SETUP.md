@@ -38,10 +38,10 @@ You should have received or generated Azure credentials. The Azure CLI may outpu
 **Example of what to paste (use your actual credentials):**
 ```json
 {
-  "clientId": "c38a4263-19a8-4ee3-9a30-f1a8d9c6a70e",
-  "clientSecret": "kn38Q~Y_3nU8kgnwoq~AMqoYL6OmUCuhpUxBvcuG",
-  "subscriptionId": "8fa9e9a2-2b75-4de8-9984-949f8b34ab28",
-  "tenantId": "ba416056-8c0c-49fb-bdff-31782244be2e"
+  "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "clientSecret": "your-client-secret-here",
+  "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
