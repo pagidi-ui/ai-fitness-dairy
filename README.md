@@ -20,14 +20,25 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the app.
 
+## ☁️ Deploy to Azure
+
+This project is configured for deployment to Azure App Service. See [AZURE_DEPLOYMENT.md](./AZURE_DEPLOYMENT.md) for detailed instructions on:
+
+- Creating an Azure Service Principal
+- Configuring GitHub Secrets
+- Setting up automatic deployment via GitHub Actions
+
+Quick start:
+1. Create an Azure Web App
+2. Configure GitHub Secrets (see `AZURE_DEPLOYMENT.md`)
+3. Push to `main` branch to trigger deployment
+
 ## 🚂 Deploy to Railway
 
 1. Push your code to GitHub
 2. Connect your repository to Railway
 3. Set up environment variables (see `.env.example`)
 4. Deploy!
-
-Railway will automatically use the configuration in `railway.json`.
 
 ## 📦 Built With
 
@@ -39,7 +50,18 @@ Railway will automatically use the configuration in `railway.json`.
 
 ## 🔧 Environment Variables
 
-See `.env.example` for required environment variables.
+For local development with Azure services:
+
+1. Copy `.env.example` to `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Update `.env.local` with your actual Azure credentials
+
+See [AZURE_DEPLOYMENT.md](./AZURE_DEPLOYMENT.md) for detailed configuration instructions.
+
+**⚠️ Security Note:** Never commit `.env.local` or actual credentials to git. Use GitHub Secrets for deployment.
 
 ## 📝 Features
 
