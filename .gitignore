@@ -26,6 +26,11 @@ yarn-error.log*
 .env*.local
 .env
 
+# credentials and secrets - NEVER commit these!
+YOUR_CREDENTIALS.md
+*credentials*.md
+*secrets*.md
+
 # vercel
 .vercel
 
