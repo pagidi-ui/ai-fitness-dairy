@@ -20,24 +20,22 @@ az ad sp create-for-rbac --name "ai-fitness-dairy" \
   --sdk-auth
 ```
 
-This will output JSON credentials in the following format:
+This will output JSON credentials that may include multiple fields, but for GitHub Actions, you **only need these four fields**:
 
 ```json
 {
   "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "clientSecret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
+  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
-**⚠️ IMPORTANT: Keep these credentials secure! Never commit them to git.**
+**⚠️ IMPORTANT Notes:**
+- **Keep these credentials secure! Never commit them to git.**
+- **Only use the four fields shown above** for the `AZURE_CREDENTIALS` secret in GitHub Actions
+- If the Azure CLI output includes additional fields like `activeDirectoryEndpointUrl`, `resourceManagerEndpointUrl`, etc., you should **remove them** and only keep the four required fields
+- Ensure the JSON is valid (properly closed braces, no trailing text or comments)
 
 ## Step 2: Configure GitHub Secrets
 
@@ -52,7 +50,16 @@ For GitHub Actions deployment, you need to add these credentials as secrets:
 
 #### AZURE_CREDENTIALS
 - **Name**: `AZURE_CREDENTIALS`
-- **Value**: The entire JSON output from step 1 (copy the complete JSON)
+- **Value**: A JSON object with **only** the four required fields from step 1:
+  ```json
+  {
+    "clientId": "your-client-id",
+    "clientSecret": "your-client-secret",
+    "subscriptionId": "your-subscription-id",
+    "tenantId": "your-tenant-id"
+  }
+  ```
+  **Important**: Remove any extra fields like `activeDirectoryEndpointUrl`, `resourceManagerEndpointUrl`, etc. if present in the Azure CLI output
 
 #### AZURE_WEBAPP_PUBLISH_PROFILE
 - **Name**: `AZURE_WEBAPP_PUBLISH_PROFILE`
@@ -115,7 +122,17 @@ Once configured, deployments happen automatically:
 ## Troubleshooting
 
 ### Deployment fails with authentication error
-- Verify that `AZURE_CREDENTIALS` secret contains valid JSON
+- **Verify JSON format**: The `AZURE_CREDENTIALS` secret must contain **only** these four fields:
+  ```json
+  {
+    "clientId": "...",
+    "clientSecret": "...",
+    "subscriptionId": "...",
+    "tenantId": "..."
+  }
+  ```
+  Remove any additional fields like `activeDirectoryEndpointUrl`, `managementEndpointUrl`, etc.
+- Verify that `AZURE_CREDENTIALS` secret contains valid JSON (no trailing text, properly closed braces)
 - Check that the service principal has contributor access to the resource group
 - Ensure the subscription is active
 
