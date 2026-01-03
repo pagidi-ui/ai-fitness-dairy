@@ -19,10 +19,10 @@ I've successfully configured your repository to use Azure credentials securely. 
 Your credentials have been saved in `YOUR_CREDENTIALS.md` (in the repository root, but git-ignored). This file contains:
 
 ```
-Client ID:        c38a4263-19a8-4ee3-9a30-f1a8d9c6a70e
-Client Secret:    kn38Q~Y_3nU8kgnwoq~AMqoYL6OmUCuhpUxBvcuG
-Subscription ID:  8fa9e9a2-2b75-4de8-9984-949f8b34ab28
-Tenant ID:        ba416056-8c0c-49fb-bdff-31782244be2e
+Client ID:        [See YOUR_CREDENTIALS.md]
+Client Secret:    [See YOUR_CREDENTIALS.md]
+Subscription ID:  [See YOUR_CREDENTIALS.md]
+Tenant ID:        [See YOUR_CREDENTIALS.md]
 ```
 
 ## 🚀 What You Need To Do Next
@@ -30,7 +30,7 @@ Tenant ID:        ba416056-8c0c-49fb-bdff-31782244be2e
 ### Option A: Deploy via GitHub Actions (Recommended)
 
 1. **Add Credentials to GitHub Secrets**
-   - Go to: https://github.com/pagidi-ui/ai-fitness-dairy/settings/secrets/actions
+   - Go to your repository Settings → Secrets and variables → Actions
    - Click "New repository secret"
    - Name: `AZURE_CREDENTIALS`
    - Value: Copy the entire JSON from `YOUR_CREDENTIALS.md`

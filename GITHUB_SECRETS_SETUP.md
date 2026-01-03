@@ -25,7 +25,7 @@ You should have received or generated Azure credentials in this JSON format:
 
 ### Step 1: Access Repository Secrets
 
-1. Go to your GitHub repository: `https://github.com/pagidi-ui/ai-fitness-dairy`
+1. Go to your GitHub repository settings
 2. Click on **Settings** tab
 3. In the left sidebar, click **Secrets and variables** → **Actions**
 
@@ -36,13 +36,13 @@ You should have received or generated Azure credentials in this JSON format:
 3. Value: Paste the **ENTIRE JSON** credential object (all lines from `{` to `}`)
 4. Click **Add secret**
 
-Example of what to paste:
+Example of what to paste (use your actual credentials from YOUR_CREDENTIALS.md):
 ```json
 {
-  "clientId": "c38a4263-19a8-4ee3-9a30-f1a8d9c6a70e",
-  "clientSecret": "kn38Q~Y_3nU8kgnwoq~AMqoYL6OmUCuhpUxBvcuG",
-  "subscriptionId": "8fa9e9a2-2b75-4de8-9984-949f8b34ab28",
-  "tenantId": "ba416056-8c0c-49fb-bdff-31782244be2e",
+  "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "clientSecret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
   "resourceManagerEndpointUrl": "https://management.azure.com/",
   "activeDirectoryGraphResourceId": "https://graph.windows.net/",
