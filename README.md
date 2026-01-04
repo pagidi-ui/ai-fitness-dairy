@@ -22,6 +22,8 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 
 ## ☁️ Deploy to Azure
 
+⚠️ **IMPORTANT**: If you have previously shared Azure credentials publicly, see [SECURITY_WARNING.md](./SECURITY_WARNING.md) immediately.
+
 This project is configured for deployment to Azure App Service. See [AZURE_DEPLOYMENT.md](./AZURE_DEPLOYMENT.md) for detailed instructions on:
 
 - Creating an Azure Service Principal
