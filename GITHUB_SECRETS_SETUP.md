@@ -50,7 +50,7 @@ You should have received or generated Azure credentials. The Azure CLI may outpu
 - Do not include fields like `activeDirectoryEndpointUrl`, `managementEndpointUrl`, etc.
 - Ensure the JSON is valid (proper braces, no trailing text or comments)
 
-### Step 3: Update Workflow Configuration
+### Step 2: Update Workflow Configuration
 
 Edit `.github/workflows/azure-webapps-node.yml` and change line 32:
 

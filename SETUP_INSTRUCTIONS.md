@@ -56,7 +56,7 @@ This document provides a quick guide to get your GitHub Actions workflow running
    - Remove any extra fields like `activeDirectoryEndpointUrl`, `resourceManagerEndpointUrl`, etc.
    - Ensure valid JSON (proper braces, no trailing text)
 
-#### Step 3: Update Workflow Configuration
+#### Step 2: Update Workflow Configuration
 
 Edit `.github/workflows/azure-webapps-node.yml` line 32:
 
