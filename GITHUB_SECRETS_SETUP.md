@@ -50,20 +50,7 @@ You should have received or generated Azure credentials. The Azure CLI may outpu
 - Do not include fields like `activeDirectoryEndpointUrl`, `managementEndpointUrl`, etc.
 - Ensure the JSON is valid (proper braces, no trailing text or comments)
 
-### Step 3: Add AZURE_WEBAPP_PUBLISH_PROFILE Secret
-
-1. Click **New repository secret** again
-2. Name: `AZURE_WEBAPP_PUBLISH_PROFILE`
-3. Value: Download from Azure Portal:
-   - Go to [Azure Portal](https://portal.azure.com)
-   - Navigate to your App Service
-   - Click **Download publish profile**
-   - Open the downloaded `.publishsettings` file in a text editor
-   - Copy the entire contents
-   - Paste as the secret value
-4. Click **Add secret**
-
-### Step 4: Update Workflow Configuration
+### Step 3: Update Workflow Configuration
 
 Edit `.github/workflows/azure-webapps-node.yml` and change line 32:
 

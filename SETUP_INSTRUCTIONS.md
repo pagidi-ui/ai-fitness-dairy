@@ -56,11 +56,6 @@ This document provides a quick guide to get your GitHub Actions workflow running
    - Remove any extra fields like `activeDirectoryEndpointUrl`, `resourceManagerEndpointUrl`, etc.
    - Ensure valid JSON (proper braces, no trailing text)
 
-4. Add the `AZURE_WEBAPP_PUBLISH_PROFILE` secret:
-   - Download from Azure Portal → Your App Service → "Download publish profile"
-   - Copy the entire contents of the `.publishsettings` file
-   - Paste as the secret value
-
 #### Step 3: Update Workflow Configuration
 
 Edit `.github/workflows/azure-webapps-node.yml` line 32:
@@ -113,8 +108,8 @@ git push
 
 **Common Causes**:
 1. `AZURE_WEBAPP_NAME` doesn't match your actual Azure Web App name
-2. `AZURE_WEBAPP_PUBLISH_PROFILE` secret is not set or incorrect
-3. Service principal doesn't have permissions
+2. `AZURE_CREDENTIALS` secret is not set, incorrectly formatted, or contains invalid credentials
+3. Service principal doesn't have permissions to deploy to the web app
 
 **Solution**: Verify all configuration in [AZURE_DEPLOYMENT.md](./AZURE_DEPLOYMENT.md).
 

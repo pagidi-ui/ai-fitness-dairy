@@ -61,14 +61,6 @@ For GitHub Actions deployment, you need to add these credentials as secrets:
   ```
   **Important**: Remove any extra fields like `activeDirectoryEndpointUrl`, `resourceManagerEndpointUrl`, etc. if present in the Azure CLI output
 
-#### AZURE_WEBAPP_PUBLISH_PROFILE
-- **Name**: `AZURE_WEBAPP_PUBLISH_PROFILE`
-- **Value**: Download this from Azure Portal:
-  1. Go to your Azure App Service
-  2. Click on "Download publish profile"
-  3. Open the downloaded `.publishsettings` file
-  4. Copy its entire contents and paste as the secret value
-
 ## Step 3: Update Workflow Environment Variables
 
 Edit `.github/workflows/azure-webapps-node.yml` and update:
@@ -139,10 +131,6 @@ Once configured, deployments happen automatically:
 ### Cannot find Azure Web App
 - Verify `AZURE_WEBAPP_NAME` matches your actual app name in Azure
 - Ensure the web app exists in the correct subscription
-
-### Publish profile error
-- Download a fresh publish profile from Azure Portal
-- Ensure you copied the entire contents of the `.publishsettings` file
 
 ## Additional Resources
 
